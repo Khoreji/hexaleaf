@@ -8,7 +8,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(MaterialApp(
-    initialRoute: "login",
+    initialRoute: "signup",
     routes: {
       "login": (context) => Login(),
       "signup": (context) => MyReg(),
