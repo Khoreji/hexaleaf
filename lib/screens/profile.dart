@@ -133,7 +133,7 @@ class _ProfileState extends State<Profile> {
           ),
           decoration: BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage("assets/images/Hexaleaf.jpg"),
+                  image: AssetImage("assets/images/hl.jpg"),
                   fit: BoxFit.fill)),
           height: double.infinity,
           width: double.infinity,
