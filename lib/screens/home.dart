@@ -37,7 +37,7 @@ class _MyNavBarState extends State<MyNavBar> {
     return Scaffold(
       body: _children[currentindex],
       bottomNavigationBar: CurvedNavigationBar(
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.black,
         items: [
           Icon(
             Icons.add,
@@ -52,7 +52,7 @@ class _MyNavBarState extends State<MyNavBar> {
           });
         },
         animationDuration: Duration(milliseconds: 100),
-        color: Colors.tealAccent,
+        color: Colors.white,
         height: 50.0,
       ),
     );

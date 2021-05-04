@@ -36,7 +36,6 @@ class _ProfileState extends State<Profile> {
   static Future init() async {
     shrprf = await SharedPreferences.getInstance();
 
-    print("1");
     savedusername = shrprf.getString("username");
   }
 
@@ -44,8 +43,6 @@ class _ProfileState extends State<Profile> {
   Widget build(BuildContext context) {
     setState(() {
       init();
-
-      print("$savedusername");
     });
     getdata();
     var device = MediaQuery.of(context).size;
