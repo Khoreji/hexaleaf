@@ -29,7 +29,7 @@ class _MyNavBarState extends State<MyNavBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ,
+      body: _children[currentindex],
         bottomNavigationBar: CurvedNavigationBar(
           backgroundColor: Colors.white,
           items: [
