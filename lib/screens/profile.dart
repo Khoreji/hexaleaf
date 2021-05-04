@@ -85,7 +85,7 @@ class _ProfileState extends State<Profile> {
                   child: Container(
                     padding: EdgeInsets.only(left: 12),
                     decoration: BoxDecoration(
-                        color: Colors.black38,
+                        color: Colors.black54,
                         borderRadius: BorderRadius.circular(20)),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -94,16 +94,16 @@ class _ProfileState extends State<Profile> {
                         Text(
                           "$name",
                           style: TextStyle(
-                            fontSize: 12,
-                            decoration: TextDecoration.underline,
+                            fontSize: 13,
+                            fontWeight: FontWeight.bold,
                             color: Colors.white,
                           ),
                         ),
                         Text(
                           "$email",
                           style: TextStyle(
-                            fontSize: 12,
-                            decoration: TextDecoration.underline,
+                            fontSize: 13,
+                            fontWeight: FontWeight.bold,
                             color: Colors.white,
                           ),
                           textAlign: TextAlign.center,
@@ -111,8 +111,8 @@ class _ProfileState extends State<Profile> {
                         Text(
                           "$pno",
                           style: TextStyle(
-                            fontSize: 12,
-                            decoration: TextDecoration.underline,
+                            fontSize: 13,
+                            fontWeight: FontWeight.bold,
                             color: Colors.white,
                           ),
                           textAlign: TextAlign.center,
@@ -120,8 +120,8 @@ class _ProfileState extends State<Profile> {
                         Text(
                           "$workas",
                           style: TextStyle(
-                            fontSize: 12,
-                            decoration: TextDecoration.underline,
+                            fontSize: 13,
+                            fontWeight: FontWeight.bold,
                             color: Colors.white,
                           ),
                           textAlign: TextAlign.center,
@@ -133,8 +133,7 @@ class _ProfileState extends State<Profile> {
           ),
           decoration: BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage("assets/images/hl.jpg"),
-                  fit: BoxFit.fill)),
+                  image: AssetImage("assets/images/hl.jpg"), fit: BoxFit.fill)),
           height: double.infinity,
           width: double.infinity,
         ),
