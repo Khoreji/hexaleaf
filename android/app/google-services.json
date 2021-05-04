@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "340095074609",
+    "project_id": "hexaleaf",
+    "storage_bucket": "hexaleaf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:340095074609:android:8c3eed3c0c0f407aab7010",
+        "android_client_info": {
+          "package_name": "com.hexaleaf.tech"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "340095074609-rgef9vi17e9l54c53il2ain4mauidv61.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCyqXDo9ILQT4HgLz9IXWDQf-cKnPeCxSw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "340095074609-rgef9vi17e9l54c53il2ain4mauidv61.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
