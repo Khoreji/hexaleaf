@@ -5,8 +5,22 @@ import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 class ChatApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return WebviewScaffold(
-      url: 'https://hexaleaf-technologies.000webhostapp.com/chat/index.php',
+    var device = MediaQuery.of(context).size;
+    return MaterialApp(
+      home: Scaffold(
+        body: Container(
+          child: Positioned(
+              left: device.width * 0.9,
+              top: device.height * 0.6,
+              width: device.width * 0.6,
+              child: Container(child: Text("Chat_Page"))),
+          decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage("assets/images/hl.jpg"), fit: BoxFit.fill)),
+          width: double.infinity,
+          height: double.infinity,
+        ),
+      ),
     );
   }
 }
