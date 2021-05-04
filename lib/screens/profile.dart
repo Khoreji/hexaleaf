@@ -57,16 +57,11 @@ class _ProfileState extends State<Profile> {
                   width: device.width * 0.3,
                   height: device.width * 0.3,
                   child: Container(
-                      decoration: BoxDecoration(
-                        color: Colors.transparent,
-                        border: Border.all(color: Colors.white, width: 2),
-                        borderRadius: BorderRadius.circular(100),
-                      ),
-                      child: Icon(
-                        Icons.person,
-                        size: 70,
-                        color: Colors.white,
-                      ))),
+                    decoration: BoxDecoration(
+                      image: DecorationImage(image: NetworkImage("$imgurl")),
+                      borderRadius: BorderRadius.circular(100),
+                    ),
+                  )),
               Positioned(
                   top: device.height * 0.3,
                   left: device.width * 0,
