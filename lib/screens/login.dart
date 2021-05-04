@@ -194,20 +194,6 @@ class _LoginState extends State<Login> {
                           backgroundColor: MaterialStateColor.resolveWith(
                               (states) => Colors.white)),
                     )),
-                Positioned(
-                  left: dw * 0.25,
-                  top: dh * 0.70,
-                  width: dw * 0.50,
-                  child: TextButton(
-                    child: Text(
-                      "Not registered yet?",
-                      style: TextStyle(
-                        color: Colors.white,
-                      ),
-                    ),
-                    onPressed: null,
-                  ),
-                )
               ],
             ),
           ),
