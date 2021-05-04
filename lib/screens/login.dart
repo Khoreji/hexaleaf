@@ -171,16 +171,6 @@ class _LoginState extends State<Login> {
                                 print("savedusername:$savedusername");
                               });
 
-                              Fluttertoast.showToast(
-                                  msg: "$savedusername",
-                                  toastLength: Toast.LENGTH_SHORT,
-                                  gravity: ToastGravity.TOP,
-                                  timeInSecForIosWeb: 1,
-                                  backgroundColor: Colors.red,
-                                  textColor: Colors.white,
-                                  fontSize: 16.0);
-
-//                              Navigator.pushNamed(context, "home");
                               setState(() {
                                 progress = false;
                               });
