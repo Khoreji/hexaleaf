@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hexaleaf/screens/signup.dart';
 
 class Login extends StatefulWidget {
   // This widget is the root of your application.
