@@ -1,5 +1,6 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:hexaleaf/screens/website.dart';
 
 class MyApp extends StatefulWidget {
   @override
@@ -17,7 +18,7 @@ class _MyAppState extends State<MyApp> {
 }
 int currentindex = 0;
 final List _children = [
-
+  MyWebsite(),
 ];
 class MyNavBar extends StatefulWidget {
   @override
@@ -28,6 +29,7 @@ class _MyNavBarState extends State<MyNavBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      body: ,
         bottomNavigationBar: CurvedNavigationBar(
           backgroundColor: Colors.white,
           items: [
