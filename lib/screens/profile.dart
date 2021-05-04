@@ -10,17 +10,17 @@ class Profile extends StatefulWidget {
 
 class _ProfileState extends State<Profile> {
   _ProfileState() {
-    getdata();
+    //  getdata();
   }
   static var savedusername = "";
   static SharedPreferences shrprf;
-  var fsconnect = FirebaseFirestore.instance;
-  var name = "";
-  var email = "";
-  var pno = '';
-  var imgurl = "";
-  var workas = "";
-  var progress = false;
+  static var fsconnect = FirebaseFirestore.instance;
+  static var name = "";
+  static var email = "";
+  static var pno = '';
+  static var imgurl = "";
+  static var workas = "";
+  static var progress = false;
   getdata() async {
     progress = true;
     var data = await fsconnect
@@ -39,16 +39,18 @@ class _ProfileState extends State<Profile> {
     });
   }
 
-  static Future init() async {
+  Future init() async {
     shrprf = await SharedPreferences.getInstance();
 
     savedusername = shrprf.getString("username");
+    getdata();
   }
 
   @override
   Widget build(BuildContext context) {
     setState(() {
       init();
+//      savedusername = shrprf.getString("username");
     });
 
     var device = MediaQuery.of(context).size;
