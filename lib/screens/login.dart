@@ -1,7 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:hexaleaf/screens/home.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Login extends StatefulWidget {
   // This widget is the root of your application.
@@ -11,13 +13,51 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> {
   var authc = FirebaseAuth.instance;
-  var email = "";
+  static var email = "UserName";
   var password = "";
   var progress = false;
+  var control = " ";
+  var chklogin;
+  static var savedusername = "";
+  static SharedPreferences shrprf;
+  @override
+  static Future init() async {
+    shrprf = await SharedPreferences.getInstance();
+
+    print("1");
+    if (shrprf.getString("username") != null) {
+      savedusername = shrprf.getString("username");
+    } else {
+      savedusername = "notsaved";
+    }
+  }
+
+  static Future setusername(email) async {
+    print("setusername:$email");
+    shrprf = await SharedPreferences.getInstance();
+    shrprf.setString("username", email);
+    shrprf.setString("logged", "true");
+    print("hiiusername:$email");
+  }
+
+  static Future checklogin() async {
+    shrprf = await SharedPreferences.getInstance();
+
+    print("2");
+    if (shrprf.getString("logged") == "true") {
+      runApp(MyApp());
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     var dw = MediaQuery.of(context).size.width;
     var dh = MediaQuery.of(context).size.height;
+
+    setState(() {
+      checklogin();
+    });
+
     bool toggle = true;
     return ModalProgressHUD(
         inAsyncCall: progress,
@@ -64,11 +104,12 @@ class _LoginState extends State<Login> {
                     child: TextField(
                       onChanged: (val) {
                         setState(() {
+                          init();
                           email = val;
                         });
                       },
                       decoration: InputDecoration(
-                        labelText: "Username",
+                        labelText: "username",
                         labelStyle: TextStyle(
                             fontSize: dw * 0.037,
                             color: Colors.white,
@@ -125,7 +166,21 @@ class _LoginState extends State<Login> {
                                 email: email, password: password);
                             print("signin:$email and paassword :$password");
                             if (user != null) {
-                              Navigator.pushNamed(context, "home");
+                              setState(() {
+                                setusername(email);
+                                print("savedusername:$savedusername");
+                              });
+
+                              Fluttertoast.showToast(
+                                  msg: "$savedusername",
+                                  toastLength: Toast.LENGTH_SHORT,
+                                  gravity: ToastGravity.TOP,
+                                  timeInSecForIosWeb: 1,
+                                  backgroundColor: Colors.red,
+                                  textColor: Colors.white,
+                                  fontSize: 16.0);
+
+//                              Navigator.pushNamed(context, "home");
                               setState(() {
                                 progress = false;
                               });
