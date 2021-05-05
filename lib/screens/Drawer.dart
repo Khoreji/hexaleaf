@@ -66,7 +66,7 @@ class _MyDrawerState extends State<MyDrawer> {
           ),
           ListTile(
             leading: Icon(Icons.settings),
-            title: Text('Background'),
+            title: Text('Theme'),
             onTap: () => {
               showDialog(
                 context: context,
