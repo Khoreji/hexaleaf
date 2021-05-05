@@ -212,7 +212,7 @@ class _ProfileState extends State<Profile> {
                                   width: 12,
                                 ),
                                 Icon(
-                                  Icons.email,
+                                  Icons.phone,
                                   size: 37,
                                   color: themecolor,
                                 ),
