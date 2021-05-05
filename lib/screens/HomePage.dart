@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 
 import 'Drawer.dart';
@@ -37,34 +36,6 @@ class _HomePageState extends State<HomePage> {
         drawer: MyDrawer(),
         body: Column(
           children: [
-            Center(
-              child: RaisedButton(
-                elevation: 3.0,
-                onPressed: () {
-                  showDialog(
-                    context: context,
-                    builder: (BuildContext context) {
-                      return AlertDialog(
-                        titlePadding: const EdgeInsets.all(0.0),
-                        contentPadding: const EdgeInsets.all(0.0),
-                        content: SingleChildScrollView(
-                          child: MaterialPicker(
-                            pickerColor: currentColor,
-                            onColorChanged: changeColor,
-                            enableLabel: true,
-                          ),
-                        ),
-                      );
-                    },
-                  );
-                },
-                child: const Text('Change me'),
-                color: currentColor,
-                textColor: useWhiteForeground(currentColor)
-                    ? const Color(0xffffffff)
-                    : const Color(0xff000000),
-              ),
-            ),
             Stack(children: [
               ClipPath(
                 clipper: WaveClipperOne(reverse: false),
