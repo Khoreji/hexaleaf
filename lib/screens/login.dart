@@ -23,8 +23,6 @@ class _LoginState extends State<Login> {
   @override
   static Future init() async {
     shrprf = await SharedPreferences.getInstance();
-
-    print("1");
     if (shrprf.getString("username") != null) {
       savedusername = shrprf.getString("username");
     } else {
@@ -42,8 +40,6 @@ class _LoginState extends State<Login> {
 
   static Future checklogin() async {
     shrprf = await SharedPreferences.getInstance();
-
-    print("2");
     if (shrprf.getString("logged") == "true") {
       runApp(MyApp());
     }
