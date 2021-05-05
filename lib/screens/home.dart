@@ -1,9 +1,9 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:hexaleaf/colors.dart';
 import 'package:hexaleaf/screens/chat/chat.dart';
 import 'package:hexaleaf/screens/profile.dart';
 import 'package:hexaleaf/screens/HomePage.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class MyApp extends StatefulWidget {
   @override
@@ -33,26 +33,32 @@ class MyNavBar extends StatefulWidget {
 }
 
 class _MyNavBarState extends State<MyNavBar> {
-  Color color = MyTheme.kAccentColor;
-  Color color1 = Colors.red;
-  Color color2 = Colors.black45;
-
+  _MyNavBarState(){
+    init();
+  }
+static SharedPreferences shrprf;
+  static var po;
+  static Color themecolor;   
+  static Future init() async {
+    shrprf = await SharedPreferences.getInstance();
+    if(shrprf.get('ThemeColor') != null){
+    po = int.parse("0xff" + shrprf.get('ThemeColor'));
+    themecolor = Color(po);
+    }
+  }
   @override
   Widget build(BuildContext context) {
-    setState(() {
-      print("$color$color1$color2");
+    Future.delayed(Duration(milliseconds: 1),(){
+      setState(() {
+        themecolor = Color(po);
+      init();
+    });
     });
 
     return Scaffold(
       body: _children[currentindex],
       bottomNavigationBar: CurvedNavigationBar(
-        backgroundColor: currentindex == 0
-            ? color
-            : currentindex == 1
-                ? color1
-                : currentindex == 2
-                    ? color2
-                    : null,
+        backgroundColor: themecolor,
         items: [
           Icon(
             Icons.add,
