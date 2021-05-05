@@ -8,11 +8,7 @@ class ChatApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         body: Container(
-          child: Positioned(
-              left: device.width * 0.9,
-              top: device.height * 0.6,
-              width: device.width * 0.6,
-              child: Container(child: Text("Chat_Page"))),
+          child: null,
           decoration: BoxDecoration(
               image: DecorationImage(
                   image: AssetImage("assets/images/hl.jpg"), fit: BoxFit.fill)),

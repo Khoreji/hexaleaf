@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -84,7 +85,7 @@ class _ProfileState extends State<Profile> {
                 ),
                 Positioned(
                     left: device.width * 0.35,
-                    top: device.height * 0.14,
+                    top: device.height * 0.29,
                     width: device.width * 0.3,
                     height: device.width * 0.3,
                     child: Container(
@@ -94,64 +95,178 @@ class _ProfileState extends State<Profile> {
                       ),
                     )),
                 Positioned(
-                    top: device.height * 0.4,
+                    top: device.height * 0.45,
                     left: device.width * 0.15,
                     width: device.width * 0.7,
-                    height: device.height * 0.45,
+                    //       height: device.height * 0.45,
                     child: Container(
-                      padding: EdgeInsets.only(left: 12),
-                      decoration: BoxDecoration(
-                          color: Colors.black54,
-                          borderRadius: BorderRadius.circular(20)),
                       child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        //      crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
                             "$name",
-                            style: TextStyle(
-                              fontSize: 13,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
+                            style: GoogleFonts.oswald(
+                              textStyle: TextStyle(
+                                fontSize: 19,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black,
+                              ),
                             ),
-                          ),
-                          Text(
-                            "$email",
-                            style: TextStyle(
-                              fontSize: 13,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
-                          Text(
-                            "$pno",
-                            style: TextStyle(
-                              fontSize: 13,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                            ),
-                            textAlign: TextAlign.center,
                           ),
                           Text(
                             "$workas",
-                            style: TextStyle(
-                              fontSize: 13,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
+                            style: GoogleFonts.oswald(
+                              textStyle: TextStyle(
+                                fontSize: 14,
+                                //     fontWeight: FontWeight.bold,
+                                color: Colors.black,
+                              ),
                             ),
-                            textAlign: TextAlign.center,
-                          ),
+                          )
                         ],
                       ),
                     )),
+                Positioned(
+                    top: device.height * 0.58,
+                    left: device.width * 0.036,
+                    width: device.width * 0.9,
+                    height: device.height * 0.35,
+                    child: Container(
+                      child: Column(
+                        children: [
+                          Container(
+                            width: device.width * 0.9,
+                            height: device.height * 0.1,
+                            child: Row(
+                              children: [
+                                SizedBox(
+                                  width: 12,
+                                ),
+                                Icon(
+                                  Icons.email,
+                                  size: 37,
+                                  color: themecolor,
+                                ),
+                                SizedBox(
+                                  width: 15,
+                                ),
+                                Container(
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      SizedBox(
+                                        height: 8,
+                                      ),
+                                      Text(
+                                        "Email:",
+                                        style: GoogleFonts.abel(
+                                          textStyle: TextStyle(
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.black,
+                                          ),
+                                        ),
+                                      ),
+                                      Text(
+                                        "$email",
+                                        style: GoogleFonts.abel(
+                                          textStyle: TextStyle(
+                                            fontSize: 14,
+                                            //fontWeight: FontWeight.bold,
+                                            color: themecolor,
+                                          ),
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                            decoration:
+                                BoxDecoration(color: Colors.white, boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.5),
+                                spreadRadius: 3,
+                                blurRadius: 15,
+                              ),
+                            ]),
+                          )
+                        ],
+                      ),
+                      padding: EdgeInsets.only(left: 12),
+                    )),
+                Positioned(
+                    top: device.height * 0.72,
+                    left: device.width * 0.036,
+                    width: device.width * 0.9,
+                    height: device.height * 0.35,
+                    child: Container(
+                      child: Column(
+                        children: [
+                          Container(
+                            width: device.width * 0.9,
+                            height: device.height * 0.1,
+                            child: Row(
+                              children: [
+                                SizedBox(
+                                  width: 12,
+                                ),
+                                Icon(
+                                  Icons.email,
+                                  size: 37,
+                                  color: themecolor,
+                                ),
+                                SizedBox(
+                                  width: 15,
+                                ),
+                                Container(
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      SizedBox(
+                                        height: 8,
+                                      ),
+                                      Text(
+                                        "Mobile no:",
+                                        style: GoogleFonts.abel(
+                                          textStyle: TextStyle(
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.black,
+                                          ),
+                                        ),
+                                      ),
+                                      Text(
+                                        "$pno",
+                                        style: GoogleFonts.abel(
+                                          textStyle: TextStyle(
+                                            fontSize: 14,
+                                            //fontWeight: FontWeight.bold,
+                                            color: themecolor,
+                                          ),
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                            decoration:
+                                BoxDecoration(color: Colors.white, boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.5),
+                                spreadRadius: 3,
+                                blurRadius: 15,
+                              ),
+                            ]),
+                          )
+                        ],
+                      ),
+                      padding: EdgeInsets.only(left: 12),
+                    )),
               ],
             ),
-            decoration: BoxDecoration(
-                //           image: DecorationImage(
-//                    image: AssetImage("assets/images/hl.jpg"),
-                //                  fit: BoxFit.fill)
-                ),
             height: double.infinity,
             width: double.infinity,
           ),
