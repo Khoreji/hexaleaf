@@ -1,8 +1,9 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:hexaleaf/colors.dart';
 import 'package:hexaleaf/screens/chat/chat.dart';
 import 'package:hexaleaf/screens/profile.dart';
-import 'package:hexaleaf/screens/main.dart';
+import 'package:hexaleaf/screens/HomePage.dart';
 
 class MyApp extends StatefulWidget {
   @override
@@ -21,7 +22,7 @@ class _MyAppState extends State<MyApp> {
 
 int currentindex = 0;
 final List _children = [
-  MyWebsite(),
+  HomePage(),
   ChatApp(),
   Profile(),
 ];
@@ -32,12 +33,26 @@ class MyNavBar extends StatefulWidget {
 }
 
 class _MyNavBarState extends State<MyNavBar> {
+  Color color = MyTheme.kAccentColor;
+  Color color1 = Colors.red;
+  Color color2 = Colors.black45;
+
   @override
   Widget build(BuildContext context) {
+    setState(() {
+      print("$color$color1$color2");
+    });
+
     return Scaffold(
       body: _children[currentindex],
       bottomNavigationBar: CurvedNavigationBar(
-        backgroundColor: Colors.black,
+        backgroundColor: currentindex == 0
+            ? color
+            : currentindex == 1
+                ? color1
+                : currentindex == 2
+                    ? color2
+                    : null,
         items: [
           Icon(
             Icons.add,
