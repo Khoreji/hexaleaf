@@ -2,7 +2,7 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:hexaleaf/screens/chat/chat.dart';
 import 'package:hexaleaf/screens/profile.dart';
-import 'package:hexaleaf/screens/website.dart';
+import 'package:hexaleaf/screens/main.dart';
 
 class MyApp extends StatefulWidget {
   @override
