@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -12,6 +13,7 @@ class _ProfileState extends State<Profile> {
   _ProfileState() {
     //  getdata();
   }
+  static Color themecolor;
   static var savedusername = "";
   static SharedPreferences shrprf;
   static var fsconnect = FirebaseFirestore.instance;
@@ -20,9 +22,10 @@ class _ProfileState extends State<Profile> {
   static var pno = '';
   static var imgurl = "";
   static var workas = "";
+  static var substr;
+  static var po;
   static var progress = false;
   getdata() async {
-    progress = true;
     var data = await fsconnect
         .collection('TeamProfile')
         .doc('info')
@@ -35,7 +38,6 @@ class _ProfileState extends State<Profile> {
       pno = "${data.get('pno')}";
       workas = "${data.get('WorkAs')}";
       imgurl = "${data.get('imgurl')}";
-      progress = false;
     });
   }
 
@@ -43,14 +45,22 @@ class _ProfileState extends State<Profile> {
     shrprf = await SharedPreferences.getInstance();
 
     savedusername = shrprf.getString("username");
+
+    if (shrprf.get('ThemeColor') != null) {
+      po = int.parse("0xff" + shrprf.get('ThemeColor'));
+
+      themecolor = Color(po);
+    }
+
     getdata();
   }
 
   @override
   Widget build(BuildContext context) {
-    setState(() {
-      init();
-//      savedusername = shrprf.getString("username");
+    Future.delayed(Duration(milliseconds: 1), () {
+      setState(() {
+        init();
+      });
     });
 
     var device = MediaQuery.of(context).size;
@@ -61,6 +71,17 @@ class _ProfileState extends State<Profile> {
           child: Container(
             child: Stack(
               children: [
+                ClipPath(
+                  clipper: WaveClipperOne(reverse: false),
+                  child: Container(
+                    height: device.height * 0.4,
+                    decoration: BoxDecoration(
+                        gradient: LinearGradient(colors: [
+                      themecolor,
+                      themecolor,
+                    ])),
+                  ),
+                ),
                 Positioned(
                     left: device.width * 0.35,
                     top: device.height * 0.14,
@@ -70,21 +91,6 @@ class _ProfileState extends State<Profile> {
                       decoration: BoxDecoration(
                         image: DecorationImage(image: NetworkImage("$imgurl")),
                         borderRadius: BorderRadius.circular(100),
-                      ),
-                    )),
-                Positioned(
-                    top: device.height * 0.3,
-                    left: device.width * 0,
-                    width: device.width,
-                    child: Container(
-                      child: Text(
-                        "Profile",
-                        style: TextStyle(
-                          fontSize: 32,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                        textAlign: TextAlign.center,
                       ),
                     )),
                 Positioned(
