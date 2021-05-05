@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:hexaleaf/screens/chat/chat.dart';
 import 'package:hexaleaf/screens/profile.dart';
 import 'package:hexaleaf/screens/HomePage.dart';
+import 'package:hexaleaf/screens/task.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class MyApp extends StatefulWidget {
@@ -24,6 +25,7 @@ int currentindex = 0;
 final List _children = [
   HomePage(),
   ChatApp(),
+  Task(),
   Profile(),
 ];
 
@@ -33,26 +35,27 @@ class MyNavBar extends StatefulWidget {
 }
 
 class _MyNavBarState extends State<MyNavBar> {
-  _MyNavBarState(){
+  _MyNavBarState() {
     init();
   }
-static SharedPreferences shrprf;
+  static SharedPreferences shrprf;
   static var po;
-  static Color themecolor;   
+  static Color themecolor;
   static Future init() async {
     shrprf = await SharedPreferences.getInstance();
-    if(shrprf.get('ThemeColor') != null){
-    po = int.parse("0xff" + shrprf.get('ThemeColor'));
-    themecolor = Color(po);
+    if (shrprf.get('ThemeColor') != null) {
+      po = int.parse("0xff" + shrprf.get('ThemeColor'));
+      themecolor = Color(po);
     }
   }
+
   @override
   Widget build(BuildContext context) {
-    Future.delayed(Duration(milliseconds: 1),(){
+    Future.delayed(Duration(milliseconds: 1), () {
       setState(() {
         themecolor = Color(po);
-      init();
-    });
+        init();
+      });
     });
 
     return Scaffold(
@@ -65,6 +68,7 @@ static SharedPreferences shrprf;
             size: 30,
           ),
           Icon(Icons.web, size: 30),
+          Icon(Icons.calendar_today, size: 30),
           Icon(Icons.person, size: 40),
         ],
         onTap: (index) {
