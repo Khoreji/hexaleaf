@@ -31,28 +31,24 @@ class _MyDrawerState extends State<MyDrawer> {
 
   static Future init() async {
     shrprf = await SharedPreferences.getInstance();
-
+    if(shrprf.get('ThemeColor') != null){
     po = int.parse("0xff" + shrprf.get('ThemeColor'));
 
     colorkhudka = Color(po);
     currentColor = colorkhudka;
     pickerColor = currentColor;
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    void ram() {
-      init();
-    }
-
-    setState(() {
+    Future.delayed(Duration(milliseconds: 1),(){
+      setState(() {
       pickerColor = currentColor;
-      ram();
 
       currentColor = currentColor;
-      print("currentcolor-=-089654$currentColor");
-      print("colorkhudka-=-089654$colorkhudka");
       init();
+    });
     });
 
     return Drawer(
