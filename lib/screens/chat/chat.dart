@@ -4,7 +4,7 @@ import 'package:flutter/widgets.dart';
 class ChatApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var device = MediaQuery.of(context).size;
+    //var device = MediaQuery.of(context).size;
     return MaterialApp(
       home: Scaffold(
         body: Container(
