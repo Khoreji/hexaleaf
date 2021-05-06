@@ -8,8 +8,9 @@ class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
 }
+
 class _HomePageState extends State<HomePage> {
-  _HomePageState(){
+  _HomePageState() {
     init();
   }
   GlobalKey<ScaffoldState> _key = GlobalKey<ScaffoldState>();
@@ -22,7 +23,8 @@ class _HomePageState extends State<HomePage> {
   static SharedPreferences shrprf;
   static var substr;
   static var po;
-  static Color themecolor;   
+  static Color themecolor = Colors.blue;
+
   void changeColor(Color color) {
     setState(() => pickerColor = color);
     print("pickerColor;;;-$pickerColor");
@@ -33,19 +35,24 @@ class _HomePageState extends State<HomePage> {
 
   static Future init() async {
     shrprf = await SharedPreferences.getInstance();
-    if(shrprf.get('ThemeColor') != null){
-    po = int.parse("0xff" + shrprf.get('ThemeColor'));
+    if (shrprf.get('ThemeColor') != null) {
+      po = int.parse("0xff" + shrprf.get('ThemeColor'));
 
-    themecolor = Color(po);
+      themecolor = Color(po);
+    } else if (shrprf.get('ThemeColor') == null) {
+//      po = int.parse("0xff" + shrprf.get('ThemeColor'));
+
+      themecolor = Color(0xff443a49);
     }
   }
+
   @override
   Widget build(BuildContext context) {
-     Future.delayed(Duration(milliseconds: 1),(){
+    Future.delayed(Duration(milliseconds: 1), () {
       setState(() {
         themecolor = Color(po);
-      init();
-    });
+        init();
+      });
     });
     var device = MediaQuery.of(context).size;
     return MaterialApp(

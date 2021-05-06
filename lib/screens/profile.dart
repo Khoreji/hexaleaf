@@ -14,7 +14,8 @@ class _ProfileState extends State<Profile> {
   _ProfileState() {
     //  getdata();
   }
-  static Color themecolor;
+  static Color themecolor = Colors.blue;
+
   static var savedusername = "";
   static SharedPreferences shrprf;
   static var fsconnect = FirebaseFirestore.instance;
@@ -51,6 +52,10 @@ class _ProfileState extends State<Profile> {
       po = int.parse("0xff" + shrprf.get('ThemeColor'));
 
       themecolor = Color(po);
+    } else if (shrprf.get('ThemeColor') == null) {
+//      po = int.parse("0xff" + shrprf.get('ThemeColor'));
+
+      themecolor = Color(0xff443a49);
     }
 
     getdata();
