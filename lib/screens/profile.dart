@@ -23,7 +23,7 @@ class _ProfileState extends State<Profile> {
   static var pno = '';
   static var imgurl = "";
   static var workas = "";
-  static var substr;
+  //static var substr;
   static var po;
   static var progress = false;
   getdata() async {
@@ -59,9 +59,9 @@ class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     Future.delayed(Duration(milliseconds: 1), () {
-      setState(() {
-        init();
-      });
+      // setState(() {
+      //   init();
+      // });
     });
 
     var device = MediaQuery.of(context).size;

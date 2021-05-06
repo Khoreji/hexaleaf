@@ -8,7 +8,7 @@ class Task extends StatefulWidget {
 class _TaskState extends State<Task> {
   @override
   Widget build(BuildContext context) {
-    var device = MediaQuery.of(context).size;
+    //var device = MediaQuery.of(context).size;
     return MaterialApp(
       home: Scaffold(
         body: Container(

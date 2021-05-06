@@ -1,6 +1,7 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:hexaleaf/screens/chat/chat.dart';
+import 'package:hexaleaf/screens/feedback.dart';
 import 'package:hexaleaf/screens/profile.dart';
 import 'package:hexaleaf/screens/HomePage.dart';
 import 'package:hexaleaf/screens/task.dart';
@@ -27,6 +28,7 @@ final List _children = [
   ChatApp(),
   Task(),
   Profile(),
+  FeedBack(),
 ];
 
 class MyNavBar extends StatefulWidget {
@@ -70,6 +72,7 @@ class _MyNavBarState extends State<MyNavBar> {
           Icon(Icons.web, size: 30),
           Icon(Icons.calendar_today, size: 30),
           Icon(Icons.person, size: 40),
+          Icon(Icons.feedback, size: 30)
         ],
         onTap: (index) {
           setState(() {
